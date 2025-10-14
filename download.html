@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="下载中心 - EERSOFT软件下载">
+    <meta name="keywords" content="软件下载,工具下载,EERSOFT">
+    <meta name="author" content="EERSOFT">
+    
+    <title>下载中心 - EERSOFT</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <i class="fas fa-code"></i>
+                    <span>EERSOFT</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="software.html" class="nav-link">软件中心</a>
+                <a href="download.html" class="nav-link active">下载中心</a>
+                <a href="support.html" class="nav-link">支持我们</a>
+                <a href="about.html" class="nav-link">关于我们</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 简单标题 -->
+        <div class="simple-header">
+            <div class="container">
+                <h1>下载中心</h1>
+                <p>所有软件工具下载链接</p>
+            </div>
+        </div>
+
+        <!-- 下载列表 -->
+        <div class="software-list">
+            <div class="container">
+                <div class="software-items" id="download-items">
+                    <!-- 下载列表将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/software.js"></script>
+    <script>
+        // 生成下载列表
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('download-items');
+            if (container) {
+                const software = SoftwareData.software.filter(item => item.isActive);
+                const html = software.map(software => `
+                    <div class="software-item">
+                        <a href="${software.downloadUrl}">${software.title}</a>
+                        <span class="software-description">${software.description}</span>
+                        <span class="software-version">v${software.version}</span>
+                    </div>
+                `).join('');
+                container.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>
