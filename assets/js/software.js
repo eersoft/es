@@ -562,7 +562,14 @@ SoftwareDisplay.renderSoftwareList = function() {
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
     // 如果是首页，渲染软件列表
-    if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+    const currentPath = window.location.pathname;
+    const isHomePage = currentPath.includes('index.html') || 
+                      currentPath === '/' || 
+                      currentPath === '/es/' ||
+                      currentPath.endsWith('/es') ||
+                      currentPath.endsWith('/es/');
+    
+    if (isHomePage) {
         SoftwareDisplay.renderSoftwareList();
     }
     

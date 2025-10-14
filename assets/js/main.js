@@ -39,10 +39,12 @@ function initNavigation() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > 50) {
-            navbar.style.background = 'rgba(102, 126, 234, 0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
+            // 滚动时使用Windows经典灰色
+            navbar.style.background = '#C0C0C0';
+            navbar.style.backdropFilter = 'none';
         } else {
-            navbar.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            // 顶部时恢复初始颜色（白色）
+            navbar.style.background = '#FFFFFF';
             navbar.style.backdropFilter = 'none';
         }
 
@@ -56,9 +58,21 @@ function initNavigation() {
     });
 
     // 设置当前页面的导航链接为活跃状态
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop() || 'index.html';
+    
+    // 特殊处理首页路径
+    const isHomePage = currentPath.includes('index.html') || 
+                      currentPath === '/' || 
+                      currentPath === '/es/' ||
+                      currentPath.endsWith('/es') ||
+                      currentPath.endsWith('/es/');
+    
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        const href = link.getAttribute('href');
+        if (isHomePage && href === 'index.html') {
+            link.classList.add('active');
+        } else if (!isHomePage && href === currentPage) {
             link.classList.add('active');
         }
     });
