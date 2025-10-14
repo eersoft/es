@@ -15,7 +15,18 @@ const SoftwareData = {
             isActive: true,
             screenshotUrl: 'assets/images/sh_esxgray.png',
             iconUrl: 'assets/images/sh_esxgray.png',
-            downloadUrl: 'download.html#esxgray',
+            downloadUrl: 'https://github.com/eersoft/esXGray/releases/latest',
+            directDownload: true,
+            cloudStorage: {
+                baidu: {
+                    url: 'https://pan.baidu.com/s/1example1',
+                    password: '1234'
+                },
+                weiyun: {
+                    url: 'https://share.weiyun.com/example1',
+                    password: 'abcd'
+                }
+            },
             githubUrl: '',
             documentationUrl: '',
             systemRequirements: 'Windows 7/8/10/11\n.NET Framework 4.0或更高版本\n至少2GB内存\n100MB可用磁盘空间',
@@ -47,7 +58,14 @@ const SoftwareData = {
             isActive: true,
             screenshotUrl: 'assets/images/sh_pdfzip.png',
             iconUrl: 'assets/images/sh_pdfzip.png',
-            downloadUrl: 'download.html#pdfzip',
+            downloadUrl: 'https://github.com/eersoft/PDFZip/releases/latest',
+            directDownload: true,
+            cloudStorage: {
+                baidu: {
+                    url: 'https://pan.baidu.com/s/1example2',
+                    password: '5678'
+                }
+            },
             githubUrl: '',
             documentationUrl: '',
             systemRequirements: 'Windows 7/8/10/11\n.NET Framework 4.0或更高版本\n至少1GB内存\n50MB可用磁盘空间',
@@ -79,7 +97,18 @@ const SoftwareData = {
             isActive: true,
             screenshotUrl: 'assets/images/sh_xls2doc.png',
             iconUrl: 'assets/images/sh_xls2doc.png',
-            downloadUrl: 'download.html#esxls2doc',
+            downloadUrl: '',
+            directDownload: false,
+            cloudStorage: {
+                baidu: {
+                    url: 'https://pan.baidu.com/s/1example3',
+                    password: '9012'
+                },
+                weiyun: {
+                    url: 'https://share.weiyun.com/example3',
+                    password: 'efgh'
+                }
+            },
             githubUrl: '',
             documentationUrl: '',
             systemRequirements: 'Microsoft Excel 2010或更高版本\n支持VBA宏\n至少512MB内存',
@@ -109,7 +138,14 @@ const SoftwareData = {
             isActive: true,
             screenshotUrl: 'assets/images/sh_doc2xls.png',
             iconUrl: 'assets/images/sh_doc2xls.png',
-            downloadUrl: 'download.html#esdoc2xls',
+            downloadUrl: '',
+            directDownload: false,
+            cloudStorage: {
+                baidu: {
+                    url: 'https://pan.baidu.com/s/1example4',
+                    password: '3456'
+                }
+            },
             githubUrl: '',
             documentationUrl: '',
             systemRequirements: 'Microsoft Word 2010或更高版本\nMicrosoft Excel 2010或更高版本\n支持VBA宏',
@@ -136,7 +172,14 @@ const SoftwareData = {
             isActive: true,
             screenshotUrl: 'assets/images/sh_paper.png',
             iconUrl: 'assets/images/sh_paper.png',
-            downloadUrl: 'download.html#newspaper',
+            downloadUrl: 'https://github.com/eersoft/newspaper/releases/latest',
+            directDownload: true,
+            cloudStorage: {
+                baidu: {
+                    url: 'https://pan.baidu.com/s/1example5',
+                    password: '7890'
+                }
+            },
             githubUrl: '',
             documentationUrl: '',
             systemRequirements: 'Windows 7/8/10/11\n.NET Framework 4.0或更高版本\n网络连接',
@@ -163,7 +206,18 @@ const SoftwareData = {
             isActive: true,
             screenshotUrl: 'assets/images/sh_imagecombiner.png',
             iconUrl: 'assets/images/sh_imagecombiner.png',
-            downloadUrl: 'download.html#puzzle',
+            downloadUrl: '',
+            directDownload: false,
+            cloudStorage: {
+                baidu: {
+                    url: 'https://pan.baidu.com/s/1example6',
+                    password: '2468'
+                },
+                weiyun: {
+                    url: 'https://share.weiyun.com/example6',
+                    password: 'ijkl'
+                }
+            },
             githubUrl: '',
             documentationUrl: '',
             systemRequirements: 'Windows 7/8/10/11\n.NET Framework 4.0或更高版本',

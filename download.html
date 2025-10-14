@@ -55,9 +55,26 @@
         </div>
 
         <!-- 下载列表 -->
-        <div class="software-list">
+        <div class="download-section">
             <div class="container">
-                <div class="software-items" id="download-items">
+                <!-- 搜索和筛选 -->
+                <div class="download-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="搜索软件...">
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-category="all">全部</button>
+                        <button class="filter-tab" data-category="图片处理">图片处理</button>
+                        <button class="filter-tab" data-category="文档处理">文档处理</button>
+                        <button class="filter-tab" data-category="文档转换">文档转换</button>
+                        <button class="filter-tab" data-category="系统工具">系统工具</button>
+                        <button class="filter-tab" data-category="游戏工具">游戏工具</button>
+                    </div>
+                </div>
+                
+                <!-- 软件下载卡片 -->
+                <div class="download-grid" id="download-grid">
                     <!-- 下载列表将通过JavaScript动态加载 -->
                 </div>
             </div>
@@ -67,22 +84,6 @@
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/software.js"></script>
-    <script>
-        // 生成下载列表
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('download-items');
-            if (container) {
-                const software = SoftwareData.software.filter(item => item.isActive);
-                const html = software.map(software => `
-                    <div class="software-item">
-                        <a href="${software.downloadUrl}">${software.title}</a>
-                        <span class="software-description">${software.description}</span>
-                        <span class="software-version">v${software.version}</span>
-                    </div>
-                `).join('');
-                container.innerHTML = html;
-            }
-        });
-    </script>
+    <script src="assets/js/download.js"></script>
 </body>
 </html>

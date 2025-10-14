@@ -63,38 +63,73 @@ const DownloadPage = {
 
     // 渲染下载项目
     renderDownloadItem: function(software) {
+        const downloadButtons = this.generateDownloadButtons(software);
+        
         return `
-            <div class="download-item" data-id="${software.id}">
-                <div class="download-icon">
-                    <img src="${software.iconUrl}" alt="${software.title}" />
-                </div>
-                <div class="download-info">
-                    <h3 class="download-title">${software.title}</h3>
-                    <p class="download-description">${software.description}</p>
-                    <div class="download-meta">
-                        <span class="download-version">v${software.version}</span>
-                        <span class="download-size">${software.fileSize}</span>
-                        <span class="download-category">${software.category}</span>
+            <div class="download-card" data-id="${software.id}">
+                <div class="download-card-header">
+                    <div class="download-icon">
+                        <img src="${software.iconUrl}" alt="${software.title}" />
                     </div>
-                    <div class="download-stats">
-                        <span class="download-count">
-                            <i class="fas fa-download"></i>
-                            ${Utils.formatNumber(software.downloadCount)} 次下载
-                        </span>
+                    <div class="download-info">
+                        <h3 class="download-title">${software.title}</h3>
+                        <p class="download-description">${software.description}</p>
+                        <div class="download-meta">
+                            <span class="download-version">
+                                <i class="fas fa-tag"></i>
+                                v${software.version}
+                            </span>
+                            <span class="download-size">
+                                <i class="fas fa-hdd"></i>
+                                ${software.fileSize}
+                            </span>
+                            <span class="download-category">
+                                <i class="fas fa-folder"></i>
+                                ${software.category}
+                            </span>
+                        </div>
+                        <div class="download-stats">
+                            <span class="download-count">
+                                <i class="fas fa-download"></i>
+                                ${Utils.formatNumber(software.downloadCount)} 次下载
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <div class="download-actions">
-                    <a href="software-detail.html?id=${software.id}" class="btn btn-outline btn-sm">
+                <div class="download-card-actions">
+                    <a href="software-detail.html?id=${software.id}" class="btn btn-outline">
                         <i class="fas fa-info-circle"></i>
                         查看详情
                     </a>
-                    <button class="btn btn-primary btn-sm" onclick="DownloadPage.downloadSoftware(${software.id})">
-                        <i class="fas fa-download"></i>
-                        立即下载
-                    </button>
+                    ${downloadButtons}
                 </div>
             </div>
         `;
+    },
+
+    // 生成下载按钮
+    generateDownloadButtons: function(software) {
+        let buttons = '';
+        
+        if (software.directDownload && software.downloadUrl) {
+            buttons += `
+                <button class="btn btn-primary" onclick="DownloadPage.directDownload('${software.downloadUrl}', '${software.title}')">
+                    <i class="fas fa-download"></i>
+                    直接下载
+                </button>
+            `;
+        }
+        
+        if (software.cloudStorage) {
+            buttons += `
+                <button class="btn btn-secondary" onclick="DownloadPage.showCloudStorage('${software.id}')">
+                    <i class="fas fa-cloud"></i>
+                    网盘下载
+                </button>
+            `;
+        }
+        
+        return buttons;
     },
 
     // 下载软件
@@ -187,6 +222,105 @@ const DownloadPage = {
         
         // 关闭对话框
         const dialog = document.querySelector('.download-dialog');
+        if (dialog) {
+            dialog.remove();
+        }
+    },
+
+    // 直接下载
+    directDownload: function(downloadUrl, softwareName) {
+        Utils.showMessage(`正在下载 ${softwareName}...`, 'info');
+        window.open(downloadUrl, '_blank');
+    },
+
+    // 显示网盘下载选项
+    showCloudStorage: function(softwareId) {
+        const software = SoftwareData.getSoftwareById(softwareId);
+        if (!software || !software.cloudStorage) {
+            Utils.showMessage('该软件暂无网盘下载链接', 'warning');
+            return;
+        }
+
+        const dialog = document.createElement('div');
+        dialog.className = 'cloud-storage-dialog';
+        dialog.innerHTML = `
+            <div class="dialog-overlay" onclick="this.parentElement.remove()"></div>
+            <div class="dialog-content">
+                <div class="dialog-header">
+                    <h3>网盘下载 - ${software.title}</h3>
+                    <button class="dialog-close" onclick="this.closest('.cloud-storage-dialog').remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="dialog-body">
+                    <div class="cloud-storage-options">
+                        ${this.generateCloudStorageOptions(software.cloudStorage)}
+                    </div>
+                    <div class="download-notice">
+                        <i class="fas fa-info-circle"></i>
+                        <p>请选择您偏好的网盘进行下载，部分网盘可能需要提取码或访问密码。</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(dialog);
+
+        // 添加动画效果
+        setTimeout(() => {
+            dialog.classList.add('show');
+        }, 10);
+    },
+
+    // 生成网盘选项
+    generateCloudStorageOptions: function(cloudStorage) {
+        let options = '';
+        
+        if (cloudStorage.baidu) {
+            options += `
+                <div class="cloud-option">
+                    <div class="cloud-info">
+                        <i class="fab fa-baidu" style="color: #2932e1;"></i>
+                        <div>
+                            <h4>百度网盘</h4>
+                            <p>提取码: <code>${cloudStorage.baidu.password}</code></p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="DownloadPage.openCloudLink('${cloudStorage.baidu.url}')">
+                        <i class="fas fa-external-link-alt"></i>
+                        打开链接
+                    </button>
+                </div>
+            `;
+        }
+        
+        if (cloudStorage.weiyun) {
+            options += `
+                <div class="cloud-option">
+                    <div class="cloud-info">
+                        <i class="fas fa-cloud" style="color: #00d4aa;"></i>
+                        <div>
+                            <h4>腾讯微云</h4>
+                            <p>访问密码: <code>${cloudStorage.weiyun.password}</code></p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="DownloadPage.openCloudLink('${cloudStorage.weiyun.url}')">
+                        <i class="fas fa-external-link-alt"></i>
+                        打开链接
+                    </button>
+                </div>
+            `;
+        }
+        
+        return options;
+    },
+
+    // 打开网盘链接
+    openCloudLink: function(url) {
+        window.open(url, '_blank');
+        
+        // 关闭对话框
+        const dialog = document.querySelector('.cloud-storage-dialog');
         if (dialog) {
             dialog.remove();
         }
