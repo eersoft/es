@@ -29,7 +29,7 @@ echo GitHub Pages Information
 echo ========================================
 echo.
 echo Your website should be available at:
-echo https://eersoft.github.io/eersoft-web/
+echo https://eersoft.github.io/es/
 echo.
 echo Note: It may take a few minutes for GitHub Pages to deploy.
 echo Check the Actions tab in your GitHub repository for deployment status.

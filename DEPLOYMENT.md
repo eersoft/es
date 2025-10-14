@@ -7,7 +7,7 @@
 1. 登录GitHub
 2. 点击右上角的 "+" 号，选择 "New repository"
 3. 仓库名称建议使用：`eersoft.github.io`（这样可以直接通过 `https://eersoft.github.io` 访问）
-4. 或者使用其他名称，如：`eersoft-website`
+4. 或者使用其他名称，如：`es`
 5. 设置为公开仓库
 6. 不要初始化README（因为我们已经有了）
 
@@ -62,6 +62,7 @@ git push -u origin main
 
 - 如果仓库名为 `eersoft.github.io`，网站地址为：`https://eersoft.github.io`
 - 如果仓库名为其他名称，网站地址为：`https://[username].github.io/[repository-name]`
+- 当前仓库名为 `es`，网站地址为：`https://eersoft.github.io/es`
 
 ## 自定义域名（可选）
 
