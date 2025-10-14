@@ -533,22 +533,7 @@ const SoftwareDisplay = {
     }
 };
 
-// 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', function() {
-    // 如果是首页，渲染软件列表
-    if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
-        SoftwareDisplay.renderSoftwareList();
-    }
-    
-    // 如果是软件详情页，渲染软件详情
-    if (window.location.pathname.includes('software-detail.html')) {
-        const softwareId = parseInt(Utils.getUrlParameter('id'));
-        const software = SoftwareData.getSoftwareById(softwareId);
-        SoftwareDisplay.renderSoftwareDetail(software);
-    }
-});
-
-// 生成软件列表HTML
+// 生成软件列表HTML（极简列表式）
 SoftwareData.generateSoftwareListHTML = function() {
     const softwareList = this.software;
     let html = '';
@@ -566,13 +551,28 @@ SoftwareData.generateSoftwareListHTML = function() {
     return html;
 };
 
-// 渲染软件列表
+// 渲染软件列表（极简列表式）
 SoftwareDisplay.renderSoftwareList = function() {
     const container = document.getElementById('software-items');
     if (container) {
         container.innerHTML = SoftwareData.generateSoftwareListHTML();
     }
 };
+
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 如果是首页，渲染软件列表
+    if (window.location.pathname.includes('index.html') || window.location.pathname === '/') {
+        SoftwareDisplay.renderSoftwareList();
+    }
+    
+    // 如果是软件详情页，渲染软件详情
+    if (window.location.pathname.includes('software-detail.html')) {
+        const softwareId = parseInt(Utils.getUrlParameter('id'));
+        const software = SoftwareData.getSoftwareById(softwareId);
+        SoftwareDisplay.renderSoftwareDetail(software);
+    }
+});
 
 // 导出到全局
 window.SoftwareData = SoftwareData;
