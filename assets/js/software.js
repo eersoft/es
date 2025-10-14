@@ -42,6 +42,36 @@ const SoftwareData = {
                 '可作为电子白板',
                 '方便的单键快捷键'
             ],
+            screenshots: [
+                {
+                    url: 'assets/images/sh_esxgray.png',
+                    title: '主界面',
+                    description: '软件主界面，简洁易用'
+                },
+                {
+                    url: 'assets/images/sh_esxgray.png',
+                    title: '批量处理',
+                    description: '支持批量处理多个文件'
+                }
+            ],
+            faq: [
+                {
+                    question: '软件支持哪些图片格式？',
+                    answer: '支持常见的图片格式，包括JPG、PNG、BMP、TIFF等。'
+                },
+                {
+                    question: '处理速度如何？',
+                    answer: '处理速度取决于图片大小和数量，一般单张图片处理时间在几秒到几十秒之间。'
+                },
+                {
+                    question: '软件是否免费？',
+                    answer: '软件完全免费使用，无需注册或付费。'
+                },
+                {
+                    question: '支持批量处理吗？',
+                    answer: '是的，支持批量处理多个文件，可以大大提高工作效率。'
+                }
+            ],
             createdDate: '2023-01-01',
             updatedDate: '2024-01-15'
         },
@@ -467,6 +497,7 @@ const SoftwareDisplay = {
         // 渲染软件详情内容
         const detailHTML = `
             <div class="software-detail">
+                <!-- 软件头部信息 -->
                 <div class="software-header">
                     <div class="software-header-content">
                         <div class="software-icon">
@@ -481,7 +512,7 @@ const SoftwareDisplay = {
                                     v${software.version}
                                 </span>
                                 <span class="software-size">
-                                    <i class="fas fa-download"></i>
+                                    <i class="fas fa-hdd"></i>
                                     ${software.fileSize}
                                 </span>
                                 <span class="software-category">
@@ -494,11 +525,9 @@ const SoftwareDisplay = {
                                 </span>
                             </div>
                             <div class="software-actions">
-                                <a href="${software.downloadUrl}" class="btn btn-primary btn-large">
-                                    <i class="fas fa-download"></i> 立即下载
-                                </a>
+                                ${this.generateDownloadButtons(software)}
                                 ${software.githubUrl ? `
-                                    <a href="${software.githubUrl}" class="btn btn-secondary btn-large">
+                                    <a href="${software.githubUrl}" class="btn btn-outline btn-large" target="_blank">
                                         <i class="fab fa-github"></i> 查看源码
                                     </a>
                                 ` : ''}
@@ -507,69 +536,117 @@ const SoftwareDisplay = {
                     </div>
                 </div>
 
-                <div class="software-screenshots">
-                    <h2>软件截图</h2>
-                    <div class="screenshots-grid">
-                        <div class="screenshot-main">
-                            <img src="${software.screenshotUrl}" alt="${software.title} 主截图" />
-                        </div>
-                    </div>
-                </div>
-
+                <!-- 主要内容区域 -->
                 <div class="software-content">
-                    <div class="content-grid">
+                    <div class="content-layout">
+                        <!-- 左侧主要内容 -->
                         <div class="content-main">
+                            <!-- 运行截图 -->
                             <section class="software-section">
-                                <h2>详细介绍</h2>
-                                <div class="software-long-description">
-                                    ${software.longDescription.replace(/\n/g, '<br>')}
+                                <h2 class="section-title">
+                                    <i class="fas fa-images"></i>
+                                    运行截图
+                                </h2>
+                                <div class="screenshots-gallery">
+                                    ${this.generateScreenshots(software)}
                                 </div>
                             </section>
 
+                            <!-- 功能介绍 -->
                             <section class="software-section">
-                                <h2>功能特点</h2>
-                                <ul class="features-list">
-                                    ${software.features.map(feature => `<li>${feature}</li>`).join('')}
-                                </ul>
+                                <h2 class="section-title">
+                                    <i class="fas fa-cogs"></i>
+                                    功能介绍
+                                </h2>
+                                <div class="features-grid">
+                                    ${software.features.map(feature => `
+                                        <div class="feature-item">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>${feature}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <div class="software-long-description">
+                                    <h3>详细介绍</h3>
+                                    <p>${software.longDescription.replace(/\n/g, '</p><p>')}</p>
+                                </div>
                             </section>
 
+                            <!-- 常见问题 -->
+                            <section class="software-section">
+                                <h2 class="section-title">
+                                    <i class="fas fa-question-circle"></i>
+                                    常见问题
+                                </h2>
+                                <div class="faq-list">
+                                    ${this.generateFAQ(software)}
+                                </div>
+                            </section>
+
+                            <!-- 更新日志 -->
                             ${software.changelog ? `
                                 <section class="software-section">
-                                    <h2>更新日志</h2>
+                                    <h2 class="section-title">
+                                        <i class="fas fa-history"></i>
+                                        更新日志
+                                    </h2>
                                     <div class="changelog-content">
-                                        ${software.changelog.replace(/\n/g, '<br>')}
+                                        <pre>${software.changelog}</pre>
                                     </div>
                                 </section>
                             ` : ''}
                         </div>
 
+                        <!-- 右侧边栏 -->
                         <div class="content-sidebar">
+                            <!-- 下载链接 -->
                             <div class="sidebar-widget">
-                                <h3>系统要求</h3>
-                                <div class="system-requirements">
-                                    ${software.systemRequirements.replace(/\n/g, '<br>')}
+                                <h3 class="widget-title">
+                                    <i class="fas fa-download"></i>
+                                    下载链接
+                                </h3>
+                                <div class="download-options">
+                                    ${this.generateSidebarDownloadOptions(software)}
                                 </div>
                             </div>
 
+                            <!-- 系统要求 -->
                             <div class="sidebar-widget">
-                                <h3>下载统计</h3>
-                                <div class="download-stats">
-                                    <div class="stat-item">
-                                        <span class="stat-label">总下载量</span>
-                                        <span class="stat-value">${Utils.formatNumber(software.downloadCount)}</span>
+                                <h3 class="widget-title">
+                                    <i class="fas fa-desktop"></i>
+                                    系统要求
+                                </h3>
+                                <div class="system-requirements">
+                                    <pre>${software.systemRequirements}</pre>
+                                </div>
+                            </div>
+
+                            <!-- 软件信息 -->
+                            <div class="sidebar-widget">
+                                <h3 class="widget-title">
+                                    <i class="fas fa-info-circle"></i>
+                                    软件信息
+                                </h3>
+                                <div class="software-info-list">
+                                    <div class="info-item">
+                                        <span class="info-label">版本</span>
+                                        <span class="info-value">v${software.version}</span>
                                     </div>
-                                    <div class="stat-item">
-                                        <span class="stat-label">评分</span>
-                                        <span class="stat-value">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span>4.8</span>
-                                            </div>
-                                        </span>
+                                    <div class="info-item">
+                                        <span class="info-label">大小</span>
+                                        <span class="info-value">${software.fileSize}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">分类</span>
+                                        <span class="info-value">${software.category}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">下载量</span>
+                                        <span class="info-value">${Utils.formatNumber(software.downloadCount)}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">更新日期</span>
+                                        <span class="info-value">${software.updatedDate}</span>
                                     </div>
                                 </div>
                             </div>
@@ -584,6 +661,166 @@ const SoftwareDisplay = {
         if (main) {
             main.innerHTML = detailHTML;
         }
+    },
+
+    // 生成下载按钮
+    generateDownloadButtons: function(software) {
+        let buttons = '';
+        
+        if (software.directDownload && software.downloadUrl) {
+            buttons += `
+                <a href="${software.downloadUrl}" class="btn btn-primary btn-large" target="_blank">
+                    <i class="fas fa-download"></i> 直接下载
+                </a>
+            `;
+        }
+        
+        if (software.cloudStorage) {
+            buttons += `
+                <button class="btn btn-secondary btn-large" onclick="SoftwareDisplay.showCloudStorage('${software.id}')">
+                    <i class="fas fa-cloud"></i> 网盘下载
+                </button>
+            `;
+        }
+        
+        return buttons;
+    },
+
+    // 生成截图画廊
+    generateScreenshots: function(software) {
+        if (!software.screenshots || software.screenshots.length === 0) {
+            return `
+                <div class="screenshot-placeholder">
+                    <i class="fas fa-image"></i>
+                    <p>暂无截图</p>
+                </div>
+            `;
+        }
+
+        return software.screenshots.map((screenshot, index) => `
+            <div class="screenshot-item" onclick="SoftwareDisplay.openScreenshotModal('${screenshot.url}', '${screenshot.title}')">
+                <img src="${screenshot.url}" alt="${screenshot.title}" />
+                <div class="screenshot-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <span>${screenshot.title}</span>
+                </div>
+            </div>
+        `).join('');
+    },
+
+    // 生成常见问题
+    generateFAQ: function(software) {
+        if (!software.faq || software.faq.length === 0) {
+            return `
+                <div class="faq-placeholder">
+                    <i class="fas fa-question-circle"></i>
+                    <p>暂无常见问题</p>
+                </div>
+            `;
+        }
+
+        return software.faq.map((item, index) => `
+            <div class="faq-item">
+                <div class="faq-question" onclick="SoftwareDisplay.toggleFAQ(${index})">
+                    <i class="fas fa-chevron-right"></i>
+                    <span>${item.question}</span>
+                </div>
+                <div class="faq-answer" id="faq-answer-${index}">
+                    <p>${item.answer}</p>
+                </div>
+            </div>
+        `).join('');
+    },
+
+    // 生成侧边栏下载选项
+    generateSidebarDownloadOptions: function(software) {
+        let options = '';
+        
+        if (software.directDownload && software.downloadUrl) {
+            options += `
+                <div class="download-option">
+                    <div class="download-option-header">
+                        <i class="fas fa-download"></i>
+                        <span>直接下载</span>
+                    </div>
+                    <a href="${software.downloadUrl}" class="btn btn-primary btn-sm" target="_blank">
+                        立即下载
+                    </a>
+                </div>
+            `;
+        }
+        
+        if (software.cloudStorage) {
+            options += `
+                <div class="download-option">
+                    <div class="download-option-header">
+                        <i class="fas fa-cloud"></i>
+                        <span>网盘下载</span>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="SoftwareDisplay.showCloudStorage('${software.id}')">
+                        选择网盘
+                    </button>
+                </div>
+            `;
+        }
+        
+        return options;
+    },
+
+    // 切换FAQ显示/隐藏
+    toggleFAQ: function(index) {
+        const answer = document.getElementById(`faq-answer-${index}`);
+        const question = answer.previousElementSibling;
+        const icon = question.querySelector('i');
+        
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            answer.style.display = 'block';
+            icon.style.transform = 'rotate(90deg)';
+        }
+    },
+
+    // 显示网盘下载选项
+    showCloudStorage: function(softwareId) {
+        const software = SoftwareData.getSoftwareById(softwareId);
+        if (!software || !software.cloudStorage) {
+            Utils.showMessage('该软件暂无网盘下载链接', 'warning');
+            return;
+        }
+
+        // 复用下载页面的网盘对话框逻辑
+        if (window.DownloadPage && window.DownloadPage.showCloudStorage) {
+            window.DownloadPage.showCloudStorage(softwareId);
+        }
+    },
+
+    // 打开截图模态框
+    openScreenshotModal: function(imageUrl, title) {
+        const modal = document.createElement('div');
+        modal.className = 'screenshot-modal';
+        modal.innerHTML = `
+            <div class="modal-overlay" onclick="this.parentElement.remove()"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>${title}</h3>
+                    <button class="modal-close" onclick="this.closest('.screenshot-modal').remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="${imageUrl}" alt="${title}" />
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // 添加动画效果
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
     }
 };
 
