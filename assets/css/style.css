@@ -475,6 +475,53 @@ main {
     margin-right: var(--spacing-sm);
 }
 
+/* 本地文件协议警告样式 */
+.local-file-warning {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 4px;
+    color: #856404;
+    margin: var(--spacing-md) 0;
+}
+
+.local-file-warning i {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: #f39c12;
+}
+
+.local-file-warning h3 {
+    margin-bottom: var(--spacing-md);
+    color: #856404;
+}
+
+.local-file-warning p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.local-file-warning ul {
+    text-align: left;
+    max-width: 500px;
+    margin: var(--spacing-md) auto;
+    padding-left: var(--spacing-lg);
+}
+
+.local-file-warning li {
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.5;
+}
+
+.local-file-warning code {
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #e83e8c;
+}
+
 /* 分页控件样式 */
 .pagination-container {
     margin-top: var(--spacing-xl);

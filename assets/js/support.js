@@ -20,6 +20,13 @@ const SupportPage = {
     // 从JSON文件加载赞赏记录
     loadDonationRecords: async function() {
         try {
+            // 检查是否在本地文件协议下运行
+            if (window.location.protocol === 'file:') {
+                console.warn('检测到本地文件协议，无法加载JSON数据。请使用HTTP服务器运行。');
+                this.showLocalFileWarning();
+                return;
+            }
+            
             const response = await fetch('assets/data/donations.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -30,6 +37,26 @@ const SupportPage = {
         } catch (error) {
             console.error('加载赞赏记录失败:', error);
             this.showErrorMessage();
+        }
+    },
+
+    // 显示本地文件协议警告
+    showLocalFileWarning: function() {
+        const container = document.getElementById('donation-list');
+        if (container) {
+            container.innerHTML = `
+                <div class="local-file-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>本地文件协议限制</h3>
+                    <p>由于浏览器安全限制，无法在本地直接打开HTML文件时加载JSON数据。</p>
+                    <p><strong>解决方案：</strong></p>
+                    <ul>
+                        <li>使用本地HTTP服务器：<code>python -m http.server 8000</code></li>
+                        <li>然后访问：<code>http://localhost:8000/support.html</code></li>
+                        <li>或直接访问GitHub Pages在线版本</li>
+                    </ul>
+                </div>
+            `;
         }
     },
 
