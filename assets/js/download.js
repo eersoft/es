@@ -3,7 +3,10 @@ const DownloadPage = {
     currentCategory: 'all',
 
     // 初始化
-    init: function() {
+    init: async function() {
+        // 等待软件数据加载完成
+        await SoftwareData.loadSoftwareData();
+        
         this.bindEvents();
         this.renderDownloadList();
     },

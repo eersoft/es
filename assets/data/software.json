@@ -1,0 +1,521 @@
+{
+  "software": [
+    {
+      "id": 1,
+      "title": "esXGray",
+      "description": "去除图片背景灰色的小工具，可以处理pdf并生成pdf或docx文档。",
+      "longDescription": "esXGray是一个简单的图片处理工具，主要用于去除手机拍摄图片的背景灰色。支持批量操作和直接处理PDF文件，结果可直接生成PDF/DOCX文档。支持去手写、裁剪、橡皮擦等修改功能。",
+      "category": "图片处理",
+      "version": "2.0",
+      "fileSize": "15.2 MB",
+      "downloadCount": 12500,
+      "isFeatured": true,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_esxgray.png",
+      "iconUrl": "assets/images/sh_esxgray.png",
+      "downloadUrl": "https://github.com/eersoft/esXGray/releases/latest",
+      "directDownload": true,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example1",
+          "password": "1234"
+        },
+        "weiyun": {
+          "url": "https://share.weiyun.com/example1",
+          "password": "abcd"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Windows 7/8/10/11\n.NET Framework 4.0或更高版本\n至少2GB内存\n100MB可用磁盘空间",
+      "changelog": "v2.0 (2024-01-15)\n- 新增批量处理功能\n- 优化处理算法，提升处理速度\n- 修复已知问题\n\nv1.5 (2023-12-01)\n- 新增PDF直接处理功能\n- 改进用户界面\n- 增加快捷键支持",
+      "features": [
+        "去除手机拍摄图片背景灰色",
+        "支持批量操作",
+        "支持直接处理pdf文件",
+        "漂白结果可直接生成PDF/DOCX文档",
+        "支持去手写",
+        "支持裁剪、橡皮擦等后期修改",
+        "画笔支持带压感手写板",
+        "可作为电子白板",
+        "方便的单键快捷键"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_esxgray.png",
+          "title": "主界面",
+          "description": "软件主界面，简洁易用"
+        },
+        {
+          "url": "assets/images/sh_esxgray.png",
+          "title": "批量处理",
+          "description": "支持批量处理多个文件"
+        }
+      ],
+      "faq": [
+        {
+          "question": "软件支持哪些图片格式？",
+          "answer": "支持常见的图片格式，包括JPG、PNG、BMP、TIFF等。"
+        },
+        {
+          "question": "处理速度如何？",
+          "answer": "处理速度取决于图片大小和数量，一般单张图片处理时间在几秒到几十秒之间。"
+        },
+        {
+          "question": "软件是否免费？",
+          "answer": "软件完全免费使用，无需注册或付费。"
+        },
+        {
+          "question": "支持批量处理吗？",
+          "answer": "是的，支持批量处理多个文件，可以大大提高工作效率。"
+        }
+      ],
+      "createdDate": "2023-01-01",
+      "updatedDate": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "title": "PDFZip",
+      "description": "PDF文件批量压缩小工具，本地运行不上传文件",
+      "longDescription": "PDFZip是一个简单的PDF压缩工具，支持批量处理。本地处理，不上传文件，保护隐私。支持可视化进度显示，可以中止操作。",
+      "category": "文档处理",
+      "version": "1.8",
+      "fileSize": "8.5 MB",
+      "downloadCount": 8900,
+      "isFeatured": true,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_pdfzip.png",
+      "iconUrl": "assets/images/sh_pdfzip.png",
+      "downloadUrl": "https://github.com/eersoft/PDFZip/releases/latest",
+      "directDownload": true,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example2",
+          "password": "5678"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Windows 7/8/10/11\n.NET Framework 4.0或更高版本\n至少1GB内存\n50MB可用磁盘空间",
+      "changelog": "v1.8 (2024-01-10)\n- 新增并行压缩功能\n- 优化压缩算法\n- 改进进度显示\n\nv1.5 (2023-11-15)\n- 新增批量处理功能\n- 支持进度保存与恢复",
+      "features": [
+        "批量处理、并行压缩",
+        "可中止、逐项取消",
+        "可视化进度与统计",
+        "本地处理，不上传文件，保护隐私杜绝文件外泄",
+        "列表支持按\"文件名/原始大小\"排序",
+        "支持多种输出方式",
+        "自动多方案尝试（预置 + 降级）",
+        "纯图 PDF 可选预缩放",
+        "支持保存进度与恢复"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_pdfzip.png",
+          "title": "主界面",
+          "description": "PDF压缩工具主界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "压缩效果如何？",
+          "answer": "根据PDF内容不同，压缩率通常在30%-70%之间，纯图片PDF压缩效果更明显。"
+        },
+        {
+          "question": "是否支持加密PDF？",
+          "answer": "支持大部分加密PDF，但需要输入密码才能处理。"
+        }
+      ],
+      "createdDate": "2023-02-01",
+      "updatedDate": "2024-01-10"
+    },
+    {
+      "id": 3,
+      "title": "esXls2Doc",
+      "description": "一个将Excel表格导出至Word的小工具。",
+      "longDescription": "esXls2Doc是一个VBA工具，源码公开。操作简单，支持批量处理。支持合并结果，支持直接生成PDF文件。",
+      "category": "文档转换",
+      "version": "1.2",
+      "fileSize": "2.1 MB",
+      "downloadCount": 5600,
+      "isFeatured": true,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_xls2doc.png",
+      "iconUrl": "assets/images/sh_xls2doc.png",
+      "downloadUrl": "",
+      "directDownload": false,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example3",
+          "password": "9012"
+        },
+        "weiyun": {
+          "url": "https://share.weiyun.com/example3",
+          "password": "efgh"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Microsoft Excel 2010或更高版本\n支持VBA宏\n至少512MB内存",
+      "changelog": "v1.2 (2023-12-20)\n- 新增多行合一功能\n- 优化转换速度\n- 修复格式问题\n\nv1.0 (2023-10-01)\n- 初始版本发布",
+      "features": [
+        "vba工具",
+        "公开源码安全放心",
+        "操作简便，简洁高效",
+        "批量处理，一点即成",
+        "支持合并结果",
+        "支持直接生成PDF文件",
+        "支持多行合一"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_xls2doc.png",
+          "title": "转换界面",
+          "description": "Excel转Word转换界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "需要安装Office吗？",
+          "answer": "是的，需要安装Microsoft Excel 2010或更高版本。"
+        },
+        {
+          "question": "支持哪些Excel格式？",
+          "answer": "支持.xls和.xlsx格式的Excel文件。"
+        }
+      ],
+      "createdDate": "2023-03-01",
+      "updatedDate": "2023-12-20"
+    },
+    {
+      "id": 4,
+      "title": "esDoc2Xls",
+      "description": "一个将Word文档中表格信息导入至Excel的工具，可以导入表前表后特定段落。",
+      "longDescription": "esDoc2Xls支持多种提取方式，简单快捷，提速增效。支持表格原样复制，VBA工具，开源安全。",
+      "category": "文档转换",
+      "version": "1.1",
+      "fileSize": "1.8 MB",
+      "downloadCount": 3200,
+      "isFeatured": false,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_doc2xls.png",
+      "iconUrl": "assets/images/sh_doc2xls.png",
+      "downloadUrl": "",
+      "directDownload": false,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example4",
+          "password": "3456"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Microsoft Word 2010或更高版本\nMicrosoft Excel 2010或更高版本\n支持VBA宏",
+      "changelog": "v1.1 (2023-11-30)\n- 新增段落提取功能\n- 优化表格识别\n\nv1.0 (2023-09-15)\n- 初始版本发布",
+      "features": [
+        "支持多种提取方式",
+        "简单快捷，提速增效",
+        "支持表格原样复制",
+        "VBA工具，开源安全"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_doc2xls.png",
+          "title": "提取界面",
+          "description": "Word表格提取界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "支持哪些Word格式？",
+          "answer": "支持.doc和.docx格式的Word文档。"
+        }
+      ],
+      "createdDate": "2023-04-01",
+      "updatedDate": "2023-11-30"
+    },
+    {
+      "id": 5,
+      "title": "在线报纸阅读器",
+      "description": "一款报纸阅读器，可以查看在线报纸，目前已经内置了如人民日报、国防报、华西都市报等十多份不同报纸。",
+      "longDescription": "聚合多家报纸在线源，支持全屏，自动隐藏工具栏，提供更大视界，开源免费。",
+      "category": "阅读工具",
+      "version": "1.0",
+      "fileSize": "5.2 MB",
+      "downloadCount": 2100,
+      "isFeatured": false,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_paper.png",
+      "iconUrl": "assets/images/sh_paper.png",
+      "downloadUrl": "https://github.com/eersoft/newspaper/releases/latest",
+      "directDownload": true,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example5",
+          "password": "7890"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Windows 7/8/10/11\n.NET Framework 4.0或更高版本\n网络连接",
+      "changelog": "v1.0 (2023-08-01)\n- 初始版本发布",
+      "features": [
+        "聚合多家报纸在线源",
+        "支持全屏",
+        "自动隐藏工具栏，提供更大视界",
+        "开源免费"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_paper.png",
+          "title": "阅读界面",
+          "description": "报纸阅读器主界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "需要网络连接吗？",
+          "answer": "是的，需要网络连接来获取报纸内容。"
+        }
+      ],
+      "createdDate": "2023-05-01",
+      "updatedDate": "2023-08-01"
+    },
+    {
+      "id": 6,
+      "title": "快捷拼图工具",
+      "description": "一个简单易用的拼图游戏工具",
+      "longDescription": "支持多种拼图模式，简单易用，适合休闲娱乐。",
+      "category": "游戏工具",
+      "version": "1.0",
+      "fileSize": "3.1 MB",
+      "downloadCount": 1800,
+      "isFeatured": false,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_imagecombiner.png",
+      "iconUrl": "assets/images/sh_imagecombiner.png",
+      "downloadUrl": "",
+      "directDownload": false,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example6",
+          "password": "2468"
+        },
+        "weiyun": {
+          "url": "https://share.weiyun.com/example6",
+          "password": "ijkl"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Windows 7/8/10/11\n.NET Framework 4.0或更高版本",
+      "changelog": "v1.0 (2023-07-01)\n- 初始版本发布",
+      "features": [
+        "支持多种拼图模式",
+        "简单易用",
+        "适合休闲娱乐"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_imagecombiner.png",
+          "title": "游戏界面",
+          "description": "拼图游戏主界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "支持自定义图片吗？",
+          "answer": "是的，可以导入自己的图片进行拼图。"
+        }
+      ],
+      "createdDate": "2023-06-01",
+      "updatedDate": "2023-07-01"
+    },
+    {
+      "id": 7,
+      "title": "WorkRecord-教师工作记录",
+      "description": "专为教师设计的工作记录工具",
+      "longDescription": "帮助教师记录日常工作，提高工作效率，支持多种记录格式。",
+      "category": "办公工具",
+      "version": "1.3",
+      "fileSize": "4.5 MB",
+      "downloadCount": 1500,
+      "isFeatured": false,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_workrecord.png",
+      "iconUrl": "assets/images/sh_workrecord.png",
+      "downloadUrl": "",
+      "directDownload": false,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example7",
+          "password": "1357"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Windows 7/8/10/11\n.NET Framework 4.0或更高版本",
+      "changelog": "v1.3 (2023-12-15)\n- 新增数据导出功能\n- 优化界面设计\n\nv1.0 (2023-06-15)\n- 初始版本发布",
+      "features": [
+        "专为教师设计",
+        "记录日常工作",
+        "提高工作效率",
+        "支持多种记录格式"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_workrecord.png",
+          "title": "记录界面",
+          "description": "工作记录工具界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "支持数据导出吗？",
+          "answer": "是的，支持导出为Excel和PDF格式。"
+        }
+      ],
+      "createdDate": "2023-06-15",
+      "updatedDate": "2023-12-15"
+    },
+    {
+      "id": 8,
+      "title": "定时（倒计时）关机工具",
+      "description": "一个简单实用的定时关机工具",
+      "longDescription": "支持倒计时关机，操作简单，界面友好。",
+      "category": "系统工具",
+      "version": "1.0",
+      "fileSize": "1.2 MB",
+      "downloadCount": 2800,
+      "isFeatured": false,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_autoshutdown.png",
+      "iconUrl": "assets/images/sh_autoshutdown.png",
+      "downloadUrl": "",
+      "directDownload": false,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example8",
+          "password": "9753"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Windows 7/8/10/11\n.NET Framework 4.0或更高版本",
+      "changelog": "v1.0 (2023-05-20)\n- 初始版本发布",
+      "features": [
+        "支持倒计时关机",
+        "操作简单",
+        "界面友好"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_autoshutdown.png",
+          "title": "主界面",
+          "description": "定时关机工具界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "可以取消关机吗？",
+          "answer": "是的，在倒计时结束前可以随时取消。"
+        }
+      ],
+      "createdDate": "2023-05-20",
+      "updatedDate": "2023-05-20"
+    },
+    {
+      "id": 9,
+      "title": "飞行员特训【小游戏】",
+      "description": "一款有趣的飞行员训练小游戏",
+      "longDescription": "挑战你的反应能力，看看你能坚持多少秒！",
+      "category": "游戏工具",
+      "version": "1.0",
+      "fileSize": "2.8 MB",
+      "downloadCount": 4200,
+      "isFeatured": false,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_20s.png",
+      "iconUrl": "assets/images/sh_20s.png",
+      "downloadUrl": "",
+      "directDownload": false,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example9",
+          "password": "8642"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Windows 7/8/10/11\n.NET Framework 4.0或更高版本",
+      "changelog": "v1.0 (2023-04-10)\n- 初始版本发布",
+      "features": [
+        "挑战反应能力",
+        "简单易上手",
+        "适合休闲娱乐"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_20s.png",
+          "title": "游戏界面",
+          "description": "飞行员特训游戏界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "游戏难度如何？",
+          "answer": "游戏难度会逐渐增加，适合不同水平的玩家。"
+        }
+      ],
+      "createdDate": "2023-04-10",
+      "updatedDate": "2023-04-10"
+    },
+    {
+      "id": 10,
+      "title": "Xls2DocFast",
+      "description": "快速Excel转Word工具",
+      "longDescription": "比esXls2Doc更快的转换工具，专为大批量转换设计。",
+      "category": "文档转换",
+      "version": "1.0",
+      "fileSize": "2.5 MB",
+      "downloadCount": 1900,
+      "isFeatured": false,
+      "isActive": true,
+      "screenshotUrl": "assets/images/sh_xls2docfast.png",
+      "iconUrl": "assets/images/sh_xls2docfast.png",
+      "downloadUrl": "",
+      "directDownload": false,
+      "cloudStorage": {
+        "baidu": {
+          "url": "https://pan.baidu.com/s/1example10",
+          "password": "1597"
+        }
+      },
+      "githubUrl": "",
+      "documentationUrl": "",
+      "systemRequirements": "Microsoft Excel 2010或更高版本\nMicrosoft Word 2010或更高版本\n支持VBA宏",
+      "changelog": "v1.0 (2023-03-20)\n- 初始版本发布",
+      "features": [
+        "比esXls2Doc更快的转换速度",
+        "专为大批量转换设计",
+        "操作简单",
+        "稳定可靠"
+      ],
+      "screenshots": [
+        {
+          "url": "assets/images/sh_xls2docfast.png",
+          "title": "转换界面",
+          "description": "快速转换工具界面"
+        }
+      ],
+      "faq": [
+        {
+          "question": "与esXls2Doc有什么区别？",
+          "answer": "Xls2DocFast专为大批量转换优化，速度更快。"
+        }
+      ],
+      "createdDate": "2023-03-20",
+      "updatedDate": "2023-03-20"
+    }
+  ]
+}
